@@ -1,0 +1,83 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+/twitchbe/.idea
+
+# IntelliJ
+/twitchbe/out/
+
+# mpeltonen/sbt-idea plugin
+/twitchbe/.idea_modules/
+
+### Java ###
+# Compiled class file
+/twitchbe/*.class
+
+# Log file
+/twitchbe/*.log
+
+# Package Files #
+/twitchbe/*.jar
+/twitchbe/*.war
+/twitchbe/*.nar
+/twitchbe/*.ear
+/twitchbe/*.zip
+/twitchbe/*.tar.gz
+/twitchbe/*.rar
+
+### macOS ###
+# General
+.DS_Store
+/twitchbe/.DS_Store
+.AppleDouble
+.LSOverride
+
+
+### VisualStudioCode ###
+/twitchfe/.vscode/*
+/twitchfe/!.vscode/settings.json
+/twitchfe/!.vscode/tasks.json
+/twitchfe/!.vscode/launch.json
+/twitchfe/!.vscode/extensions.json
+/twitchfe/!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+/twitchfe/.history/
+
+# Built Visual Studio Code Extensions
+/twitchfe/*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+/twitchfe/.history
+/twitchfe/.ionide
+
+# dependencies
+/twitchfe/node_modules
+/twitchfe/.pnp
+/twitchfe/.pnp.js
+
+# testing
+/twitchfe/coverage
+
+# production
+/twitchfe/build
+
+# misc
+/twitchfe/.DS_Store
+/twitchfe/.env.local
+/twitchfe/.env.development.local
+/twitchfe/.env.test.local
+/twitchfe/.env.production.local
+
+/twitchfe/npm-debug.log*
+/twitchfe/yarn-debug.log*
+/twitchfe/yarn-error.log*
+
+
+/tmp
