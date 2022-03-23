@@ -3,10 +3,28 @@
 
 .site-layout-background {
     background: rgba(28, 27, 27, 0.769);
+    height: 90vh;
 }
 
 .site-top-game-list ul {
-    max-height: 700px;
+    height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.ant-layout-sider-children{
+    height: 95vh;
+}
+
+.ant-layout-content{
+    height: 90vh;
+}
+
+
+.title{
+    font-family: sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-style: italic;
+
 }

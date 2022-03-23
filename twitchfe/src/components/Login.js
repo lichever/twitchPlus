@@ -36,7 +36,7 @@ class Login extends React.Component {
     render = () => {
         return (
             <>
-                <Button shape="round" onClick={this.signinOnClick} style={{ marginRight: '20px' }}>
+                <Button shape="round" type="primary" onClick={this.signinOnClick} style={{ marginRight: '20px' }}>
                     Login</Button>
                 <Modal
                     title="Log in"
@@ -60,7 +60,7 @@ class Login extends React.Component {
                             name="password"
                             rules={[{ required: true, message: 'Please input your Password!' }]}
                         >
-                            <Input
+                            <Input.Password
                                 prefix={<LockOutlined />}
                                 placeholder="Password"
                             />
