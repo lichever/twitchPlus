@@ -1,6 +1,7 @@
 const SERVER_ORIGIN = '';
 
 const loginUrl = `${SERVER_ORIGIN}/login`;
+//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
 export const login = (credential) => {
     return fetch(loginUrl, {
@@ -15,7 +16,7 @@ export const login = (credential) => {
             throw Error('Fail to log in');
         }
 
-        return response.json();
+        return response.json();//return a js obj
     })
 }
 

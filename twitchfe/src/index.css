@@ -1,6 +1,10 @@
 @import '~antd/dist/antd.dark.css';
 
 
+*{
+    box-sizing: border-box;
+}
+
 .site-layout-background {
     background: rgba(28, 27, 27, 0.769);
     height: 90vh;
@@ -26,5 +30,9 @@
     font-weight: bold;
     font-size: 1.5em;
     font-style: italic;
+}
+
+
+.switch{
 
 }

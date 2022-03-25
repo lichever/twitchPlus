@@ -1,8 +1,7 @@
 import { Button, Form, Input, message, Modal } from 'antd';
 import React from 'react';
-import { LockOutlined, UserOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { register } from '../utils';
-import { isVisible } from '@testing-library/user-event/dist/utils';
 
 class Register extends React.Component {
     state = {

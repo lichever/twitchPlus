@@ -22,6 +22,7 @@ const renderCardTitle = (item, loggedIn, favs, favOnChange) => {
     const isFav = favs.find((fav) => fav.id === item.id);
 
     const favOnClick = () => {
+        //这里request 删除和添加后 第一时间调用getFavoriteItem，重新从后端拉数据，避免多人同时登陆同一账号冲突操作
         if (isFav) {
             deleteFavoriteItem(item).then(() => {
                 favOnChange();

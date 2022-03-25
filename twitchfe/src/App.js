@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Layout, Menu, message, Row } from 'antd';
+import { Button, Col, Layout, Menu, message, Row, Switch } from 'antd';
 import Login from './components/Login';
 import Register from './components/Register';
 import { getFavoriteItem, getRecommendations, getTopGames, logout, searchGameById } from './utils';
@@ -31,7 +31,6 @@ class App extends React.Component {
     getFavoriteItem().then((data) => {
       this.setState({
         favoriteItems: data,
-        loggedIn: true
       })
     }).catch((err) => {
       message.error(err.message);
@@ -39,6 +38,9 @@ class App extends React.Component {
   }
 
   onGameSelect = ({ key }) => {
+    // sidebar 2种情况 Recommendations or 点击了下面的某个 topgame
+    // 注意key === 'Recommendation' 和 下面的 第三方api返回的gameId 区分开
+    //输入参数格式是{ key },是因为antd api 规定 function({ item, key, keyPath, selectedKeys, domEvent })
     if (key === 'Recommendation') {
       getRecommendations().then((data) => {
         this.setState({
@@ -85,6 +87,7 @@ class App extends React.Component {
       })
   }
 
+  //这里不像favorite数据需要login，topgame的数据直接拉
   componentDidMount = () => {
     getTopGames()
       .then((data) => {
@@ -103,17 +106,16 @@ class App extends React.Component {
       <Header>
         <Row justify="space-between">
           <Col>
-            {
+          {/* comment inside JSX, below is the JS expression*/}
+            { 
               this.state.loggedIn &&
               <Favorites data={this.state.favoriteItems} />
             }
           </Col>
 
-            <Col>
-              <div className='title'> Twitch+ Personal Recommendation Engine</div>
-            
-            </Col>
-
+          <Col>
+            <div className='title'> Twitch+ Personal Recommendation Engine</div>
+          </Col>
 
           <Col>
             {
@@ -127,19 +129,23 @@ class App extends React.Component {
                   </>
                 )
             }
+
           </Col>
         </Row>
       </Header>
       <Layout>
         <Sider width={300} className="site-layout-background">
+          {/* 通常都是app的setState 传到下面的component让其拉数据 改状态 UI局部更新 */}
           <CustomSearch onSuccess={this.customSearchOnSuccess} />
           <Menu
             mode="inline"
             onSelect={this.onGameSelect}
             style={{ marginTop: '10px' }}
           >
+            {/* 注意这里 key="Recommendation" 是和后端约定好了的 key  */}
             <Menu.Item icon={<LikeOutlined />} key="Recommendation">
               Recommend for you!</Menu.Item>
+
             <SubMenu icon={<FireOutlined />} key="Popular Games" title="Popular Games" className="site-top-game-list" >
               {
                 this.state.topGames.map((game) => {
